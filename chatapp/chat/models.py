@@ -8,6 +8,10 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(default=timezone.now)
 
+    @property
+    def email(self):
+        return self.user.email
+
     def __str__(self):
         return self.user.username
 
